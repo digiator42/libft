@@ -3,40 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahassan <ahassan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Aimlive <Aimlive@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 19:20:29 by ahassan           #+#    #+#             */
-/*   Updated: 2022/08/10 07:35:11 by ahassan          ###   ########.fr       */
+/*   Updated: 2022/08/15 00:03:12 by Aimlive          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-        size_t i;
-        size_t compare = (size_t)dest - (size_t)src;
-        char *csrc = (char *)src;
-        char *cdest = (char *)dest;
-        
-        if (!dest && !src)
-	    	return (0);
-        
-        if(compare < n){
-            n = n - 1;
-            while(n){
-                cdest[n] = csrc[n];
-                n--;
-            }
-            cdest[n] = csrc[n];
-        }
-        i = 0; 
-        while(i < n){
-            cdest[i] = csrc[i];;
-            i++;
-        }
-            
-        return cdest;
+	size_t	i;
+	char	*csrc;
+	char	*cdest;
+
+	csrc = (char *)src;
+	cdest = (char *)dest;
+	if (!dest && !src)
+		return (0);
+	if (((size_t)dest - (size_t)src) < n)
+	{
+		n = n - 1;
+		while (n)
+		{
+			cdest[n] = csrc[n];
+			n--;
+		}
+		cdest[n] = csrc[n];
+	}
+	i = 0;
+	while (i < n)
+	{
+		cdest[i] = csrc[i];
+		i++;
+	}
+	return (cdest);
 }
 
 // int main()
@@ -60,5 +62,5 @@ void *ft_memmove(void *dest, const void *src, size_t n)
 //         // char dest2[16];
 //         // memmove(dest2, csrc3, strlen(dest2));
 //         // printf("%s", csrc3);
-//         return 0;
+//         return (0);
 // }

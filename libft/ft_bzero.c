@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahassan <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: Aimlive <Aimlive@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 07:33:51 by ahassan           #+#    #+#             */
-/*   Updated: 2022/08/10 07:34:43 by ahassan          ###   ########.fr       */
+/*   Updated: 2022/08/15 00:01:26 by Aimlive          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,10 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	//memset is returning pointer,  bzero doesn't
-
-	unsigned int i;
-	char *c;
+	unsigned int	i;
+	char			*c;
 
 	c = (char *)s;
-
 	i = 0;
 	while (i < n)
 	{
@@ -44,5 +41,5 @@ void	ft_bzero(void *s, size_t n)
 // 	ft_bzero(dest1, 7);
 // 	printf("%s\n", dest1);
 // 	printf("%d\n", strlen(dest1));
-	
+
 // }

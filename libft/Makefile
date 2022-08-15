@@ -77,7 +77,12 @@ $(NAME): $(OBJECTS_PREFIXED)
 	@ar r $(NAME) $(OBJECTS_PREFIXED)
 	@echo "Libft Done !"
 
+$(SO):	@gcc -c -fPIC $(CC_FLAGS) $(SRCS)
+	@gcc -shared -o libft.so $(OBGS)
+	@echo "shared libft.so Done"
+
 all: $(NAME)
+so: $(SO)	
 
 clean:
 	rm -rf $(OBJS_DIR)

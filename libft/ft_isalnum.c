@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-int ft_isalnum(int i)
+int	ft_isalnum(int i)
 {
-    return ft_isdigit(i) || ft_isalpha(i);   
+	return (ft_isdigit(i) || ft_isalpha(i));
 }
 // int main()
 // {
 //     char c = ']';
-    
+
 //     printf("%d\n", isalnum(c));
 //     printf("%d\n", ft_isalnum(c));
 // }
