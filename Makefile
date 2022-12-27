@@ -9,8 +9,8 @@ SRCS	=	ft_atoi.c     ft_itoa.c        ft_putendl_fd.c  ft_strlcat.c  ft_substr.c
 			ft_isdigit.c  ft_memset.c      ft_striteri.c    ft_strrchr.c \
 			ft_isprint.c  ft_putchar_fd.c  ft_strjoin.c     ft_strtrim.c \
 
-BONUS = 	ft_lstnew.c	ft_lstadd_back.c	ft_lstadd_front.c	ft_lstclear.c \
-			ft_lstdelone.c	ft_lstiter.c	ft_lstlast.c	ft_lstmap.c
+BONUS = 	ft_lstnew.c	ft_lstadd_back.c	ft_lstadd_front.c \
+			ft_lstdelone.c	ft_lstlast.c \
 
 CC_FLAGS = -Wall -Wextra -Werror
 
@@ -20,10 +20,9 @@ OBJCSB = ${BONUS:.c=.o}
 
 RM = rm -rf
 
-WAIT = sleep 0.2s
-
 $(NAME) :	$(OBJCS)
 			@ar rcs $(NAME) $(OBJCS)
+			@echo Done $@... 
 
 all : $(NAME)
 
@@ -32,7 +31,7 @@ bonus : $(OBJCS) $(OBJCSB) libft.h
  
 %.o : %.c libft.h
 	  @echo "Compiling: $<"
-	  @clang $(CC_FLAGS) -c $< -o $@
+	  @cc $(CC_FLAGS) -c $< -o $@
 
 clean : 
 		@$(RM) $(OBJCS) $(OBJCSB)
@@ -42,9 +41,5 @@ fclean : clean
 		 @$(RM) $(NAME)
 		 @echo Done For $@...	
 
-re : fclean 
-	 @$(WAIT)
-	 @make
+re : fclean all
 	 @echo cleaned all and $@made again For $@...
-
-.all:		clean all re bonus
